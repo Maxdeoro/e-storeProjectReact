@@ -57,9 +57,36 @@ function App() {
 };
 
 function Header(){
+
+  const hours = new Date().getHours();
+
   return (
     <header>
       <h1>Electronic store</h1>
+      <nav>
+        <ul>
+          <li>
+            Home
+            <a href="#home"></a>
+          </li>
+          <li>
+            Catalog
+            <a href="#catalog"></a>
+          </li>
+          <li>
+            About Us
+            <a href="#aboutUs"></a>
+          </li>
+          <li>
+            Contacts
+            <a href="Contacts"></a>
+          </li>
+        </ul>
+      </nav>
+      <div>
+        <p>{hours >= 9 && hours <= 20 ? `We are currently open from ${hours}:00 till 20:00` 
+          : `We are currently close, now there are ${hours}:00. We will work from 9:00 till 20:00`}</p>
+      </div>
     </header>
   );
 };
@@ -73,8 +100,16 @@ function Catalog(){
 };
 
 function Product(){
+  const products = {...productData};
   return (
-    <li>Product</li>
+    <li>
+      <img src={products[0].photoName} alt={products[0].name}></img>
+      <div>
+        <h1>{products[0].name}</h1>
+        <p>{products[0].description}</p>
+        <span>{products[0].price}</span>
+      </div>
+    </li>
   );
 };
 
