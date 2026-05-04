@@ -1,4 +1,5 @@
 import React from "react";
+import './index.css';
 
 // emulate data from server
 const productData = [
@@ -61,9 +62,9 @@ function Header(){
   const hours = new Date().getHours();
 
   return (
-    <header>
+    <header className="header">
       <h1>Electronic store</h1>
-      <nav>
+      <nav className="nav">
         <ul>
           <li>
             Home
@@ -83,7 +84,7 @@ function Header(){
           </li>
         </ul>
       </nav>
-      <div>
+      <div className="working-hours">
         <p>{hours >= 9 && hours <= 20 ? `We are currently open from ${hours}:00 till 20:00` 
           : `We are currently close, now there are ${hours}:00. We will work from 9:00 till 20:00`}</p>
       </div>
@@ -93,8 +94,8 @@ function Header(){
 
 function Catalog(){
   return (
-    <main>
-      <ul><Product/></ul>
+    <main className="catalog">
+      <ul className="products"><Product/></ul>
     </main>
   );
 };
@@ -102,7 +103,7 @@ function Catalog(){
 function Product(){
   const products = {...productData};
   return (
-    <li>
+    <li className="product">
       <img src={products[0].photoName} alt={products[0].name}></img>
       <div>
         <h1>{products[0].name}</h1>
@@ -115,7 +116,7 @@ function Product(){
 
 function Footer(){
   return (
-    <footer>
+    <footer className="footer">
       <h2>Footer</h2>
     </footer>
   );
