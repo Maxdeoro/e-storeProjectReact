@@ -50,8 +50,8 @@ const productData = [
 function App() {
   return (
     <div>
-      <Header></Header>
-      <Catalog></Catalog>
+      <Header/>
+      <Catalog/>
       <Footer/>
     </div>
   )
@@ -95,20 +95,58 @@ function Header(){
 function Catalog(){
   return (
     <main className="catalog">
-      <ul className="products"><Product/></ul>
+      <ul className="products">
+        <Product name='Laptop Pro' 
+                 description="High-perfomance laptop for professionals." 
+                 price={1200} 
+                 img="/laptop.png" 
+                 soldOut='false'
+        />
+        <Product name='Smartphone X' 
+                 description="Latest model with stunning display"
+                 price={800} 
+                 img='/smartphone.png' 
+                 soldOut='false'
+        />
+        <Product name="Wireless Headphones" 
+                 description="Noise-cancelling headphones with great sound quality."
+                 price={200} 
+                 img='/headphones.png' 
+                 soldOut='false'
+        />
+        <Product name="Smartwatch Z"
+                 description="Stylish smartwatch with fitness tracking features."
+                 price={150}
+                 img="/smartwatch.png"
+                 soldOut='false'
+        />
+        <Product name="Gaming Console"
+                 description="Powerfull gaming console for endless fun."
+                 price={400}
+                 img="/console.png"
+                 soldOut='true'
+        />
+        <Product name="4K TV"
+                 description="Ultra HD television with vibrant colors."
+                 price={1000}
+                 img="/tv.png"
+                 soldOut='false'
+        />
+      </ul>
     </main>
   );
 };
 
-function Product(){
+function Product(props){
+  // console.log(props);
   const products = {...productData};
   return (
     <li className="product">
-      <img src={products[0].photoName} alt={products[0].name}></img>
+      <img src={props.img} alt={props.name}></img>
       <div>
-        <h1>{products[0].name}</h1>
-        <p>{products[0].description}</p>
-        <span>{products[0].price}</span>
+        <h1>{props.name}</h1>
+        <p>{props.description}</p>
+        <span>{props.price}</span>
       </div>
     </li>
   );
