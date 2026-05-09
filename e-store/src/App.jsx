@@ -96,22 +96,23 @@ function Catalog(){
   return (
     <main className="catalog">
       <ul className="products">
-        {productData.map((product,index) => <Product productProps={product} key={index}/>)}
+        {productData.map((product,index) => <Product productProps={product} key={product.name}/>)}
       </ul>
     </main>
   );
 };
 
-function Product(props){
+function Product({productProps}){
   // console.log(props);
   const products = {...productData};
+  // const {productProps} = props;
   return (
     <li className="product">
-      <img src={props.productProps.photoName} alt={props.name}></img>
+      <img src={productProps.photoName} alt={props.name}></img>
       <div>
-        <h1>{props.productProps.name}</h1>
-        <p>{props.productProps.description}</p>
-        <span>{props.productProps.price}</span>
+        <h1>{productProps.name}</h1>
+        <p>{productProps.description}</p>
+        <span>{productProps.price}</span>
       </div>
     </li>
   );
