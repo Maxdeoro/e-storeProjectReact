@@ -49,11 +49,11 @@ const productData = [
 
 function App() {
   return (
-    <div>
+    <>
       <Header/>
       <Catalog/>
       <Footer/>
-    </div>
+    </>
   )
 };
 
@@ -103,18 +103,42 @@ function Catalog(){
 };
 
 function Product({productProps}){
-  // console.log(props);
+
   const products = {...productData};
-  // const {productProps} = props;
+
+  // if(productProps.soldOut) {return null};
+
   return (
-    <li className="product">
-      <img src={productProps.photoName} alt={props.name}></img>
-      <div>
-        <h1>{productProps.name}</h1>
-        <p>{productProps.description}</p>
-        <span>{productProps.price}</span>
-      </div>
-    </li>
+    // !productProps.soldOut && (
+    //   <li className="product">
+    //     <img src={productProps.photoName} alt={productProps.name}></img>
+    //     <div>
+    //       <h1>{productProps.name}</h1>
+    //       <p>{productProps.description}</p>
+    //       <span>{productProps.price}</span>
+    //     </div>
+    //   </li>
+    // )
+
+    productProps.soldOut ? (
+      <li className="product">
+        <img src={productProps.photoName} alt={productProps.name}></img>
+        <div>
+          <h1>{productProps.name}</h1>
+          <p>{productProps.description}</p>
+          <span>SOLD OUT</span>
+        </div>
+      </li>
+    ) : (
+      <li className="product">
+        <img src={productProps.photoName} alt={productProps.name}></img>
+        <div>
+          <h1>{productProps.name}</h1>
+          <p>{productProps.description}</p>
+          <span>{productProps.price}</span>
+        </div>
+      </li>
+    )
   );
 };
 
