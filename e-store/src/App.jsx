@@ -121,7 +121,7 @@ function Product({productProps}){
     // )
 
     productProps.soldOut ? (
-      <li className="product">
+      <li className="product sold-out">
         <img src={productProps.photoName} alt={productProps.name}></img>
         <div>
           <h1>{productProps.name}</h1>

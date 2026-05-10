@@ -111,6 +111,29 @@ body {
     transition: transform 0.5s ease, box-shadow 0.3s ease;
 }
 
+.product p {
+    font-size: 1.4rem;
+    color: #666;
+    font-weight: 400;
+    margin-bottom: 1.2rem;
+}
+
+.product span {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #007013;
+}
+
+.product.sold-out {
+    opacity: 0.65;
+    pointer-events: none;
+}
+
+.product.sold-out span {
+    color: #ff4d4d;
+}
+
 .product:hover {
     transform: translateY(-5px);
     box-shadow: 0 12px 36px rgba(0, 112, 243, 0.15);
